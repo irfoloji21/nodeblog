@@ -5,11 +5,7 @@ const path = require('path')
 
 
 
-router.get('/', (req,res) => {
-  About.find({}).lean().then(about => {
-      res.render('site/about', {about:about})
-    })
-})
+
 
 
 router.post('/test', (req,res) => {

@@ -39,6 +39,7 @@
 					<thead>
 						<tr>
 							<th>NAME</th>
+							<th>EDIT</th>
 							<th>DELETE</th>
 						</tr>
 					</thead>
@@ -46,6 +47,9 @@
 						{{#each categories}}
 						<tr>
 							<td>{{name}}</td>
+							<td>
+								<a class="btn btn-warning" href="/admin/categories/edit/{{_id}}">EDIT</a>
+							</td>
 							<td>
 
 								<form action="/admin/categories/{{_id}}?_method=DELETE" method="POST">

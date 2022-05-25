@@ -55,6 +55,13 @@ router.delete('/posts/:id', (req,res) => {
     })
 })
 
+router.get('/categories/edit/:id', (req,res) => {
+ 
+    Category.findOne({_id: req.params.id}).lean().sort({$natural:-1}).lean().then(categories =>  {
+        res.render('admin/editcategories', {categories:categories})
+    })
+})
+
 router.put('/posts/:id',  (req,res) => {
     let post_image = req.files.post_image
     post_image.mv(path.resolve(__dirname, '../../public/img/postimages', post_image.name))
@@ -68,6 +75,18 @@ router.put('/posts/:id',  (req,res) => {
 
         post.save().then(post => {
             res.redirect('/posts/new')
+        })
+    })
+})
+
+router.put('/categories/:id',  (req,res) => {
+
+    Category.findOne({_id: req.params.id}).then(category => {
+        category.name = req.body.name
+       
+
+        category.save().then(post => {
+            res.redirect('/admin/categories')
         })
     })
 })

@@ -47,5 +47,10 @@ router.get('/contact', (req,res) => {
     res.render('site/contact')
 })
 
+router.get('/about', (req,res) => {
+    About.find({}).lean().then(about => {
+        res.render('site/about', {about:about})
+      })
+  })
 
 module.exports = router
