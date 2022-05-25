@@ -91,11 +91,13 @@ const posts = require('./routes/posts')
 const users = require('./routes/users')
 const admin = require('./routes/admin/index')
 const contact = require('./routes/contact')
+const about = require('./routes/about')
 app.use('/', main)
 app.use('/posts', posts)
 app.use('/users', users)
 app.use('/admin', admin)
 app.use('/contact', contact)
+app.use('/about', about)
 
 app.listen(port, hostname, () => {
     console.log(`server çalışıyor, http://${hostname}:${port}/`)

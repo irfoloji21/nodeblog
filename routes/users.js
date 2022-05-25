@@ -2,20 +2,7 @@ const express = require('express')
 const router = express.Router()
 const User = require('../models/User')
 
-router.get('/register', (req, res) => {
-    res.render('site/register')
-})
 
-router.post('/register', (req, res) => {
-    User.create(req.body, (error, user) => {
-        req.session.sessionFlash = {
-            type: 'alert alert-success',
-            message: 'Kullanıcı başarılı bir şekilde yaratıldı'
-          }
-        res.redirect('/users/login')
-    })
-    res.render('site/register')
-})
 
 router.get('/login', (req, res) => {
     res.render('site/login')

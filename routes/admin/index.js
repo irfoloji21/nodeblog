@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const Category = require('../../models/Category')
+const About = require('../../models/About')
 const Post = require('../../models/Post')
 const path = require('path')
 
@@ -14,6 +15,12 @@ router.get('/categories', (req,res) => {
     })
 })
 
+router.get('/about', (req,res) => {
+  
+    About.find({}).lean().then(about => {
+        res.render('admin/about', {about:about})
+})
+})
 router.post('/categories', (req,res) => {
     Category.create(req.body, (error, category)=> {
         if(!error) {
@@ -30,13 +37,13 @@ router.delete('/categories/:id', (req,res) => {
 
 router.get('/posts', (req,res) => {
     Post.find({}).populate({path:'category', model: Category}).lean().sort({$natural:-1}).lean().then(posts => {
-            res.render('admin/posts', {posts:posts})
+            res.render('/posts/new', {posts:posts})
     })
 })
 
 router.delete('/posts/:id', (req,res) => {
     Post.remove({_id : req.params.id}).then(()=>{
-        res.redirect('/admin/posts')
+        res.redirect('/posts/new')
     })
   })
 
@@ -60,7 +67,7 @@ router.put('/posts/:id',  (req,res) => {
         post.post_image= `/img/postimages/${post_image.name}`
 
         post.save().then(post => {
-            res.redirect('/admin/posts')
+            res.redirect('/posts/new')
         })
     })
 })

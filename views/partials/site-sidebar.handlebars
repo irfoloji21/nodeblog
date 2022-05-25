@@ -21,24 +21,4 @@
     </div>
 
 
-    <!-- Posts sidebar -->
-    <div class="widget">
-        <h3 class="mb-3">Latest Posts</h3>
-        <!-- single post -->
-
-        {{#each (limit posts 3)}}
-        <div class="widget-post">
-            <a href="/posts/{{_id}}">
-                <img class="img-fluid" src="{{post_image}}" alt="">{{title}}
-            </a>
-            <ul class="blog-meta">
-                <li>{{generateDate post.date 'MMM DD YYYY'}}</li>
-            </ul>
-        </div>
-        {{/each}}
-        <!-- /single post -->
-
-    </div>
-    <!-- /Posts sidebar -->
-
 </aside>

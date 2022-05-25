@@ -3,24 +3,17 @@ const router = express.Router()
 const Post = require('../models/Post')
 const Category = require('../models/Category')
 const User = require('../models/User')
+const About = require('../models/About')
 
 router.get('/', (req,res) => {
     console.log(req.session) 
     res.render('site/index')
 })
 
-// router.get('/admin', (req,res) => {
-//     res.render('admin/index')
-// })
-
 router.get('/blog', (req,res) => {
 
-    const postPerPage = 4
-    const page =req.query.page || 1
     
     Post.find({}).populate({path:'author', model: User}).lean().sort({$natural:-1}).lean()
-    .skip((postPerPage * page) - postPerPage)
-    .limit(postPerPage)
     .then(posts => {
         Post.countDocuments().then(postCount => {
             Category.aggregate([
@@ -42,9 +35,7 @@ router.get('/blog', (req,res) => {
             ]).then(categories => {
                 res.render('site/blog', {
                     posts:posts, 
-                    categories:categories,
-                    current: parseInt(page),
-                    pages: Math.ceil(postCount/postPerPage)
+                    categories:categories
                 })
             })
         })

@@ -9,9 +9,11 @@ router.get('/new', (req,res) => {
   if(!req.session.userId){
     res.redirect('/users/login')
   }
-    Category.find({}).lean().then(categories => {
-      res.render('site/addpost', {categories:categories})
-    })
+      Post.find({}).populate({path:'category', model: Category}).lean().sort({$natural:-1}).lean().then(posts => {
+        Category.find({}).lean().then(categories => {
+        res.render('site/addpost', {posts:posts, categories:categories})
+      })
+  })
 })
 
 function escapeRegex(text) {
@@ -116,7 +118,7 @@ router.post('/test', (req,res) => {
     }
 
 
-    res.redirect('/blog')
+    res.redirect('/posts/new')
 })
 
 module.exports = router
