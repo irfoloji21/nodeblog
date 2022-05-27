@@ -4,10 +4,18 @@ const Post = require('../models/Post')
 const Category = require('../models/Category')
 const User = require('../models/User')
 const About = require('../models/About')
+const Contact = require('../models/Contact')
+const Service = require('../models/Service')
 
 router.get('/', (req,res) => {
-    console.log(req.session) 
-    res.render('site/index')
+    Service.find({}).populate({path:'adres', model: Contact}).lean().then(service => {
+        Contact.find({}).lean().then(contact => {
+        res.render('site/index', {
+            service:service,
+            contact:contact
+        })
+      })
+    })
 })
 
 router.get('/blog', (req,res) => {
@@ -33,9 +41,13 @@ router.get('/blog', (req,res) => {
                     }
                 }
             ]).then(categories => {
+                Contact.find({}).lean().then(contact => {
+                
                 res.render('site/blog', {
                     posts:posts, 
-                    categories:categories
+                    categories:categories,
+                    contact:contact
+                })
                 })
             })
         })
@@ -44,13 +56,26 @@ router.get('/blog', (req,res) => {
 })
 
 router.get('/contact', (req,res) => {
-    res.render('site/contact')
+    Contact.find({}).lean().then(contact => {
+        res.render('site/contact', {contact:contact})
+      })
 })
 
+
 router.get('/about', (req,res) => {
-    About.find({}).lean().then(about => {
-        res.render('site/about', {about:about})
+    About.find({}).populate({path:'adres', model: Contact}).lean().then(about => {
+        Contact.find({}).lean().then(contact => {
+            res.render('site/about', {
+                about:about,
+                contact:contact
+            })
+        })
+        
       })
   })
 
+  
+
+
+  
 module.exports = router

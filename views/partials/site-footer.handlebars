@@ -25,15 +25,12 @@
 			<div class="col-12">
 				<div class="footer-py-60">
 					<div class="row">
+						 {{#each contact}}
 						<div class="col-lg-4 col-12 mb-0 mb-md-4 pb-0 pb-md-2">
 							<a href="#" class="logo-footer">
 								<img src="images/logo-light.png" height="28" alt="">
 							</a>
-							<p >ENDÜKİM ENDÜSTRİYEL KİMYA ANONİM ŞİRKETİ <br> <br> Address: ADALET MAH.
-								ANADOLU CAD. MEGAPOL TOWER NO: 41 İÇ KAPI NO: 101
-								BAYRAKLI/ İZMİR,
-								35530
-								VAT number: 3341125443 </p>
+							<p >ENDÜKİM ENDÜSTRİYEL KİMYA ANONİM ŞİRKETİ <br> <br> Address: {{adres}} </p>
 							<ul class="list-unstyled social-icon foot-social-icon mb-0 mt-4">
 								<li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><svg
 											xmlns="http://www.w3.org/2000/svg" width="24" height="24"
@@ -93,15 +90,16 @@
 						<div  class="col-lg-4 col-12 mb-0 mb-md-4 pb-0 pb-md-2">
 							<p class="mt-4">Contact: 
 								<br>
-								Lara YILDIZ
-								lara@endukim.com
+								{{contact_name}}
+								{{contact_email}}
 								<br><br>
-								Tel.: +90 501 340 16 64 
-								<br> office@endukim.com
+								Tel.: {{phone}}
+								<br> {{kurumsal_email}}
 
 							</p>
 							
 						</div>
+						{{/each}}
 					</div>
 					<!--end row-->
 				</div>

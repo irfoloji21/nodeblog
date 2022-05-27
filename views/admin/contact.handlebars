@@ -1,0 +1,47 @@
+<!--==========================
+    INSIDE HERO SECTION Section
+============================-->
+<section class="page-image page-image-about md-padding">
+	<h1 class="text-white text-center">LOCATION / CONTACT</h1>
+</section>
+
+<!--==========================
+    ABOUTUS Section
+============================-->
+<section id="aboutus" class="md-padding">
+	<div class="container">
+		{{> admin-nav}}
+	<div class="clearfix"></div>
+	<div class="mb-5"></div>
+		<div class="row">
+			<div class="col-md-12">
+				<table class="table">
+					<thead>
+						<tr>
+							<th>Name</th>
+							<th>Email</th>
+							<th>Business Email</th>
+							<th>Phone</th>
+							<th>Adress</th>
+							<th>EDIT</th>
+						</tr>
+					</thead>
+					<tbody>
+						{{#each contact}}
+						<tr>
+							<td>{{contact_name}}</td>
+							<td>{{contact_email}}</td>
+							<td>{{kurumsal_email}}</td>
+							<td>{{phone}}</td>
+							<td>{{adres}}</td>
+							<td>
+								<a class="btn btn-warning" href="/admin/contact/edit/{{_id}}">EDIT</a>
+							</td>
+						</tr>
+						{{/each}}
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</section>

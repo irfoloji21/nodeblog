@@ -15,6 +15,7 @@
 			</div>
         <div class="row">
             <div class="col-md-6 d-flex align-items-stretch">
+                {{#each contact}}
                 <div class="info-wrap w-100 p-3">
                     <h5 class="mb-4" style="font-size: 1.25rem;">ENDÜKİM ENDÜSTRİYEL KİMYA ANONİM ŞİRKETİ</h5>
                     <div class="dbox w-100 d-flex align-items-start">
@@ -22,15 +23,7 @@
                             <span class="fa fa-map-marker"></span>
                         </div>
                         <div class="text pl-4">
-                            <p><span>Address:</span>ADALET MAH. ANADOLU CAD. MEGAPOL TOWER NO: 41 İÇ KAPI NO: 101 BAYRAKLI/ İZMİR, 35530</p>
-                        </div>
-                    </div>
-                    <div class="dbox w-100 d-flex align-items-start">
-                        <div class="icon d-flex align-items-center justify-content-center">
-                            <span class="fa fa-globe"></span>
-                        </div>
-                        <div class="text pl-4">
-                            <p><span>VAT number</span> <a href="tel:3341125443">3341125443</a></p>
+                            <p><span>Address:</span>{{adres}}</p>
                         </div>
                     </div>
                     <div class="dbox w-100 d-flex align-items-start">
@@ -39,8 +32,8 @@
                         </div>
                         <div class="text pl-4">
                             <p>
-                                <span>Contact : </span>LARA YILDIZ
-                                <a href="mailto:lara@endukim.com">lara@endukim.com</a>
+                                <span>Contact : </span>{{contact_name}}
+                                <a href="mailto:{{contact_email}}">{{contact_email}}</a>
 							</p>
                         </div>
                     </div>
@@ -49,8 +42,8 @@
                             <span class="fa fa-phone"></span>
                         </div>
                         <div class="text pl-4">
-                            <p><span>Phone:</span> <a href="tel:05013401664
-                                ">+90 501 340 16 64</a></p>
+                            <p><span>Phone:</span> <a href="tel:{{phone}}
+                                ">{{phone}}</a></p>
                         </div>
                     </div>
                     <div class="dbox w-100 d-flex align-items-start">
@@ -58,10 +51,11 @@
                             <span class="fa fa-paper-plane"></span>
                         </div>
                         <div class="text pl-4">
-                            <p><span>Email:</span> <a href="mailto:office@endukim.com">office@endukim.com</a></p>
+                            <p><span>Email:</span> <a href="mailto:{{kurumsal_email}}">{{kurumsal_email}}</a></p>
                         </div>
                     </div>
                 </div>
+                {{/each}}
             </div>
             <div class="col-md-6 align-items-center map">
                 <div class="mapouter">

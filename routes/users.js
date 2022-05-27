@@ -5,9 +5,10 @@ const User = require('../models/User')
 
 
 router.get('/login', (req, res) => {
+    console.log({message: req.t('server_is_running')})
     res.render('site/login')
 })
-
+ 
 router.post('/login', (req, res) => {
     const {email, password} = req.body
 
@@ -15,7 +16,7 @@ router.post('/login', (req, res) => {
         if (user) {
             if(user.password == password) {
                 req.session.userId = user._id
-                res.redirect('/')
+                res.redirect('/posts/new')
             } else {
                 res.redirect('/users/login')
             }

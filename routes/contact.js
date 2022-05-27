@@ -1,5 +1,28 @@
 const express = require('express')
+const Contact = require('../models/Contact')
 const router = express.Router()
+
+
+
+router.post('/test', (req,res) => {
+
+
+
+  Contact.create({
+      ...req.body,
+      author: req.session.userId
+  },  )
+
+  req.session.sessionFlash = {
+    type: 'alert alert-success',
+    message: 'Postunuz başarılı bir şekilde oluşturuldu'
+  }
+
+
+  res.redirect('/admin/contact')
+})
+
+
 
 router.post('/email', (req, res) => {
     const outputHTML = `

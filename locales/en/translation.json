@@ -1,0 +1,10 @@
+var dictionary = {
+    "english": {
+        "better": "Better with us, Connect to digital world",
+        "netaxtechTeam": "We're Netax Tech team. We build and design digital products from idea to development"
+    },
+    "turkish": {
+        "better": "Bizimle dijital dÃ¼nyaya daha iyi baÄŸlanÄ±n",
+        "netaxtechTeam": "Netax Tech ekibiyiz. Fikirden geliÅŸime dijital Ã¼rÃ¼nler Ã¼retip tasarlÄ±yoruz"
+    }
+};

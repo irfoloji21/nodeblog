@@ -2,7 +2,7 @@
 		<div class="container">
 			<div class="intro-text">
 				<h1 class="text-white">ENDÜKİM ENDÜSTRİYEL KİMYA ANONİM ŞİRKETİ</h1>
-				<p> is a manufacturer and distributor of chemical products located in Izmir, Turkey.</p>
+				<p style="font-size: 18px;"> is a manufacturer and distributor of chemical products located in Izmir, Turkey.</p>
 			</div>
 		</div>
 	</header>
@@ -16,32 +16,20 @@
 			<div class="row text-center">
 				<div class="col-md-4 offset-md-4">
 					<div class="section-header">
-						<h2 class="title">Services</h2>
+						<h2 class="title" data-en="services" data-tr="servislerimiz">Servislerimiz</h2>
 					</div>
 				</div>
 			</div>
 			<div class="row text-center">
+				{{#each service}}
 				<div class="col-md-4">
 					<div class="about">
 						<i class="fas fa-cogs"></i>
-						<h3>Lorem Ipsum</h3>
-						<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
+						<h3>{{title}}</h3>
+						<p>{{content}}</p>
 					</div>
 				</div>
-				<div class="col-md-4">
-					<div class="about">
-						<i class="fas fa-magic"></i>
-						<h3>Lorem Ipsum</h3>
-						<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
-					</div>
-				</div>
-				<div class="col-md-4">
-					<div class="about">
-						<i class="fas fa-mobile"></i>
-						<h3>Lorem Ipsum</h3>
-						<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
-					</div>
-				</div>
+				{{/each}}
 			</div>
 		</div>
 	</section>

@@ -5,24 +5,23 @@
 
 	<section id="aboutus" class="md-padding">
 		<div class="container">
-
+				{{#each about}}
 			<div class="row text-center">
 				<div class="col-md-4 offset-md-4">
 					<div class="section-header">
-						<h2 class="title">How We Begin</h2>
+						<h2 class="title">{{title}}</h2>
 					</div>
 				</div>
 			</div>
-			<div class="row justify-content-center no-gutters mb-5 mb-lg-0">
+			<div style="margin-bottom: 3rem!important;" class="row justify-content-center no-gutters mb-5 mb-lg-0">
 				<div class="col-md-6">
-					<img class="img-fluid" src="img/about-fabrika.jpeg" alt="">
+					<img class="img-fluid" src="{{about_image}}" alt="">
 				</div>
 				<div class="col-md-6">
 					<div class="bg-main text-center h-100 project">
 						<div class="d-flex h-100">
 							<div class="project-text w-100 my-auto text-center text-lg-left">
-								<p class="mb-3 text-white">ENDUKIM is manufacturer and distributor of chemical products for the petrochemical industry.
-The company's management has more than 7 years of experience in the chemical business.
+								<p style="font-size: 18px;" class="mb-3 text-white">{{content}}
 </p>
 
 							</div>
@@ -30,5 +29,6 @@ The company's management has more than 7 years of experience in the chemical bus
 					</div>
 				</div>
 			</div>
+{{/each}}
 		</div>
 	</section>

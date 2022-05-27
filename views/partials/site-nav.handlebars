@@ -8,14 +8,10 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarResponsive">
 				<ul class="navbar-nav text-uppercase ml-auto">
+					{{#unless displayLink}}
 					<li class="nav-item">
 						<a class="nav-link" href="/">Home</a>
 					</li>
-					{{#if displayLink}}
-					<li class="nav-item">
-						<a class="nav-link" href="/admin">Admin</a>
-					</li>
-					{{/if}}
 					<li class="nav-item">
 						<a class="nav-link" href="/blog">Products</a>
 					</li>
@@ -25,12 +21,12 @@
 					<li class="nav-item">
 						<a class="nav-link" href="/contact">Contact / Location</a>
 					</li>
-					
-					{{!-- {{#unless displayLink}}
+					{{/unless}}
+					{{!-- 
 					<li class="nav-item">
 						<a class="nav-link" href="/users/login">Login</a>
 					</li>
-					{{/unless}} --}}
+					 --}}
 					{{#if displayLink}}
 					<li class="nav-item">
 						<a class="nav-link" href="/users/logout">Logout</a>

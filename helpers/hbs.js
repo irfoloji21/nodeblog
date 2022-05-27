@@ -11,5 +11,8 @@ module.exports = {
     truncate : (str, len) => {
         if(str.length > len) str = str.substring(0, len) + '...'
         return str
+    },
+    i18n : () => {
+        return i18n.__.apply(this,arguments);
     }
 }
