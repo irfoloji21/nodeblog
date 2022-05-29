@@ -7,6 +7,7 @@ const PostSchema = new mongoose.Schema({
     content:{ type: String, require:true },
     date: { type:Date, default: Date.now },
     category: { type: Schema.Types.ObjectId, ref:'categories'},
+    language: { type: Schema.Types.ObjectId, ref:'languages'},
     post_image: { type: String, require:true }
 })
 

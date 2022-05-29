@@ -30,7 +30,7 @@
 							<a href="#" class="logo-footer">
 								<img src="images/logo-light.png" height="28" alt="">
 							</a>
-							<p >ENDÜKİM ENDÜSTRİYEL KİMYA ANONİM ŞİRKETİ <br> <br> Address: {{adres}} </p>
+							<p class="lang" data-key="COMPANY_NAME">ENDÜKİM ENDÜSTRİYEL KİMYA ANONİM ŞİRKETİ </p> <p>  <p  class="lang" data-key="ADRESS">Address:</p>  {{adres}} </p>
 							<ul class="list-unstyled social-icon foot-social-icon mb-0 mt-4">
 								<li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><svg
 											xmlns="http://www.w3.org/2000/svg" width="24" height="24"
@@ -76,20 +76,20 @@
 
 						<div class="col-lg-4 col-12 mb-0 mb-md-4 pb-0 pb-md-2">
 							<ul  style="    margin: auto;  width: fit-content;" class="list-unstyled footer-list mt-4">
-								<li><a href="/" class="text-foot"><i class="uil uil-angle-right-b me-1"></i> Home</a>
+								<li><a href="/" class="text-foot lang"  data-key="HOME"><i class="uil uil-angle-right-b me-1"></i> Home</a>
 								</li>
-								<li><a href="/blog" class="text-foot"><i class="uil uil-angle-right-b me-1"></i>
+								<li><a href="/blog" class="text-foot lang"  data-key="PRODUCTS"><i class="uil uil-angle-right-b me-1"></i>
 										Products</a></li>
-								<li><a href="/contact" class="text-foot"><i class="uil uil-angle-right-b me-1"></i>
+								<li><a href="/contact" class="text-foot lang"  data-key="CONTACT"><i class="uil uil-angle-right-b me-1"></i>
 										Contact</a></li>
-								<li><a href="/about" class="text-foot"><i class="uil uil-angle-right-b me-1"></i> About
+								<li><a href="/about" class="text-foot lang"  data-key="ABOUT"><i class="uil uil-angle-right-b me-1"></i> About
 										us</a></li>
 							</ul>
 						</div>
 
 						<div  class="col-lg-4 col-12 mb-0 mb-md-4 pb-0 pb-md-2">
-							<p class="mt-4">Contact: 
-								<br>
+							<p class="mt-4" ><p class="lang" data-key="CONTACT"> Contact: </p>
+								
 								{{contact_name}}
 								{{contact_email}}
 								<br><br>
@@ -115,7 +115,7 @@
 			<div class="row align-items-center">
 				<div class="col">
 					<div class="text-center">
-						<p class="mb-0 text-muted">
+						<p class="mb-0 text-muted lang" data-key="FOOTER">
 							<script type="text/javascript" id="www-widgetapi-script"
 								src="https://www.youtube.com/s/player/c5a4daa1/www-widgetapi.vflset/www-widgetapi.js"
 								async=""></script>
@@ -135,9 +135,14 @@
 <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script> -->
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script type="text/javascript" src="/js/multilang.js"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
+<!-- süleymanın dil için yaptığı dropdowndan alındı-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+
 <script src="/js/lightbox-plus-jquery.js"></script>
 <script src="/js/owl.carousel.min.js"></script>
 <script src="/js/main.js"></script>

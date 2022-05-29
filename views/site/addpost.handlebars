@@ -74,6 +74,13 @@
 								</select>
 							</div>
 							<div class="form-group">
+								<select class="form-control" name="language">
+									{{#each language}}
+									 <option value="{{_id}}">{{name}}</option>
+									{{/each}}
+								</select>
+							</div>
+							<div class="form-group">
 								{{!-- <input class="form-control" name="post_image" type="file" required="required" data-validation-required-message="Please upload an image.">
 								<p class="help-block text-danger"></p> --}}
 

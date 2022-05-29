@@ -4,6 +4,8 @@ const Post = require('../models/Post')
 const path = require('path')
 const Category = require('../models/Category')
 const User = require('../models/User')
+const Contact = require('../models/Contact')
+const Language = require('../models/Language')
 
 router.get('/new', (req,res) => {
   if(!req.session.userId){
@@ -11,7 +13,9 @@ router.get('/new', (req,res) => {
   }
       Post.find({}).populate({path:'category', model: Category}).lean().sort({$natural:-1}).lean().then(posts => {
         Category.find({}).lean().then(categories => {
-        res.render('site/addpost', {posts:posts, categories:categories})
+            Language.find({}).lean().then(language => {
+          res.render('site/addpost', {posts:posts, categories:categories, language:language})
+        })
       })
   })
 })
@@ -91,7 +95,9 @@ router.get("/:id", (req, res) => {
         }
     ]).then(categories => {
         Post.find({}).populate({path:'author', model: User}).lean().sort({$natural:-1}).lean().then(posts => {
-          res.render('site/post', {post:post.toJSON(), categories:categories, posts:posts})
+          Contact.find({}).lean().then(contact => {
+          res.render('site/post', {post:post.toJSON(), categories:categories, posts:posts, contact:contact})
+        })
         })
     })
     });

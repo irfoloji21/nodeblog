@@ -6,7 +6,7 @@ const hostname = '127.0.0.1'
 const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
 const fileUpload = require('express-fileupload')
-const { generateDate, limit, truncate, i18n } = require('./helpers/hbs')
+const { generateDate, limit, truncate, i18n, language } = require('./helpers/hbs')
 const expressSession = require('express-session')
 const connectMongo = require('connect-mongo')
 const methodOverride = require('method-override')
@@ -52,7 +52,8 @@ const hbs = exphbs.create({
         generateDate:generateDate,
         limit: limit,
         truncate: truncate,
-        i18n: i18n
+        i18n: i18n,
+        language: language
 
     }
 })

@@ -14,5 +14,9 @@ module.exports = {
     },
     i18n : () => {
         return i18n.__.apply(this,arguments);
+    },
+    language : (value) => {
+        if(value == "tr")  return "Türkçe"
+        else return "İngilizce"
     }
 }

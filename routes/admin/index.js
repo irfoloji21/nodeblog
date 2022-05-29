@@ -5,6 +5,7 @@ const About = require('../../models/About')
 const Post = require('../../models/Post')
 const Contact = require('../../models/Contact')
 const Service = require('../../models/Service')
+const Language = require('../../models/Language')
 const path = require('path')
 
 router.get('/', (req,res) => {-
@@ -73,7 +74,9 @@ router.delete('/posts/:id', (req,res) => {
   router.get('/posts/edit/:id', (req,res) => {
     Post.findOne({_id: req.params.id}).lean().then(post => {
         Category.find({}).lean().then(categories => {
-            res.render('admin/editpost', {post:post,categories:categories})
+            Language.find({}).lean().then(language => {
+            res.render('admin/editpost', {post:post,categories:categories,language:language})
+        })
         })
     })
 })
@@ -113,6 +116,7 @@ router.put('/posts/:id',  (req,res) => {
     Post.findOne({_id: req.params.id}).then(post => {
         post.title = req.body.title
         post.content = req.body.content
+        post.language = req.body.language
         post.date = req.body.date
         post.category = req.body.category
         post.post_image= `/img/postimages/${post_image.name}`
