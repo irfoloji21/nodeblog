@@ -1,5 +1,5 @@
 <section class="page-image page-image-contact md-padding">
-	<h1 class="text-white text-center">EDIT POST</h1>
+	<h1 class="text-white text-center">POST DÜZENLE</h1>
 </section>
 <!--==========================
     Contact Section
@@ -10,7 +10,8 @@
 		<div class="row text-center">
 			<div class="col-md-4 offset-md-4">
 				<div class="section-header">
-					<h2 class="title">EDIT POST</h2>
+					<h2 class="title">Düzenle POST</h2>
+						{{post.category_id}}
 				</div>
 			</div>
 		</div>
@@ -22,35 +23,53 @@
 					<div class="row">
 						<div class="offset-2 col-md-8">
 							<div class="form-group">
+								<span>Başlık</span>
+								<input class="form-control" name="title_tr" type="text" value="{{post.title_tr}}"
+									required="required"
+									data-validation-required-message="Lütfen başlık giriniz.">
+								<p class="help-block text-danger"></p>
+							</div>
+							<div class="form-group">
+								<span>İçerik</span>
+								<textarea class="form-control" name="content_tr" required="required"
+									data-validation-required-message="Lütfen içerik giriniz.">{{post.content_tr}}</textarea>
+								<p class="help-block text-danger"></p>
+							</div>
+							<div class="form-group">
 								<span>Title</span>
-								<input class="form-control" name="title" type="text" value="{{post.title}}"
+								<input class="form-control" name="title_en" type="text" value="{{post.title_en}}"
 									required="required"
 									data-validation-required-message="Please enter the title of the new post.">
 								<p class="help-block text-danger"></p>
 							</div>
 							<div class="form-group">
 								<span>Content</span>
-								<textarea class="form-control" name="content" required="required"
-									data-validation-required-message="Please enter the content of the new post.">{{post.content}}</textarea>
+								<textarea class="form-control" name="content_en" required="required"
+									data-validation-required-message="Please enter the content of the new post.">{{post.content_en}}</textarea>
+								<p class="help-block text-danger"></p>
+							</div>
+								<div class="form-group">
+								<span>Title</span>
+								<input class="form-control" name="title_ar" type="text" value="{{post.title_ar}}"
+									required="required"
+									data-validation-required-message="Please enter the title of the new post.">
+								<p class="help-block text-danger"></p>
+							</div>
+							<div class="form-group">
+								<span>Content</span>
+								<textarea class="form-control" name="content_ar" required="required"
+									data-validation-required-message="Please enter the content of the new post.">{{post.content_ar}}</textarea>
 								<p class="help-block text-danger"></p>
 							</div>
 							<div class="form-group">
 								<span>Category</span>
-								<select class="form-control" name="category">
+								<select class="form-control" name="category"  id="irfan" >
 									{{#each categories}}
-									<option value="{{_id}}">{{name}}</option>
-									{{/each}}
-
-								</select>
-							</div>
-							<div class="form-group">
-								<span>Language</span>
-								<select class="form-control" name="language">
-									{{#each language}}
-									<option value="{{_id}}">{{language code}}</option>
+									<option value="{{_id}}">{{name_tr}}</option>
 									{{/each}}
 								</select>
 							</div>
+						
 							<div class="form-group">
 								{{!-- <span>Image</span> --}}
 								{{!-- <input src="{{post.post_image}}" class="form-control" name="post_image"
@@ -61,7 +80,7 @@
 								<p><input class="form-control" type="file" name="post_image" value="{{post.post_image}}"
 										onchange="loadFile(event)"></p>
 
-
+									{{!-- <img src="{{post.post_image}}" alt="" srcset=""> --}}
 								<script>
 									var loadFile = function (event) {
 										var post_image = document.getElementById('output');
@@ -72,10 +91,23 @@
 
 						</div>
 
+
+					<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+					<script>
+						
+
+							var irfan = document.getElementById("irfan");
+      						console.log(irfan);
+							  
+
+						</script>
+
+
+
 						<div class="clearfix"></div>
 						<div class="col-lg-12 text-center">
 							<div id="success"></div>
-							<button class="main-btn" type="submit">Save</button>
+							<button class="main-btn" type="submit">Kaydet</button>
 						</div>
 					</div>
 				</form>

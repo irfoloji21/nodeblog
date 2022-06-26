@@ -2,7 +2,7 @@
     INSIDE HERO SECTION Section
 ============================-->
 <section class="page-image page-image-about md-padding">
-	<h1 class="text-white text-center">SERVICES</h1>
+	<h1 class="text-white text-center">HİZMETLER</h1>
 </section>
 
 <!--==========================
@@ -19,35 +19,43 @@
 			<div class="row text-center">
 				<div class="col-md-4 offset-md-4">
 					<div class="section-header">
-						<h2 class="title">Services</h2>
+						<h2 class="title">Hizmetler</h2>
 					</div>
 				</div>
 			</div>
 
 		<div class="row">
-			<div class="col-md-6">
+			<div class="col-md-12">
 				<table class="table">
 					<thead>
 						<tr>
-							<th>TITLE</th>
-							<th>CONTENT</th>
-							<th>EDIT</th>
-							<th>DELETE</th>
+							<th>TÜRKÇE BAŞLIK</th>
+							<th>İNGİLİZCE BAŞLIK</th>
+							<th>ARAPÇA BAŞLIK</th>
+							<th>TÜRKÇE İÇERİK</th>
+							<th>İNGİLİZCE BAŞLIK</th>
+							<th>ARAPÇA BAŞLIK</th>
+							<th>DÜZENLE</th>
+							<th>SİL</th>
 						</tr>
 					</thead>
 					<tbody>
 						{{#each service}}
 						<tr>
-							<td>{{title}}</td>
-							<td>{{content}}</td>
+							<td>{{title_tr}}</td>
+							<td>{{title_en}}</td>
+							<td>{{title_ar}}</td>
+							<td>{{content_tr}}</td>
+							<td>{{content_en}}</td>
+							<td>{{content_ar}}</td>
 							<td>
-								<a class="btn btn-warning" href="/admin/service/edit/{{_id}}">EDIT</a>
+								<a class="btn btn-warning" href="/admin/service/edit/{{_id}}">DÜZENLE</a>
 							</td>
 							<td>
 
 								<form action="/admin/service/{{_id}}?_method=DELETE" method="POST">
 									<input type="hidden" name="_method" value="DELETE">
-									<button type="submit" class="btn btn-danger">DELETE</button>
+									<button type="submit" class="btn btn-danger">SİL</button>
 								</form>
 
 							</td>
@@ -56,16 +64,32 @@
 					</tbody>
 				</table>
 			</div>
-			<div  class="col-md-6">
+			<div  class="col-md-8">
 				<form action="/service/test" method="POST" enctype="multipart/form-data">
 					<div class="row">
 						<div class="offset-2 col-md-12">
                             <div class="form-group">
-								<input class="form-control" name="title" type="text" placeholder="Title *" required="required" data-validation-required-message="Please enter the title of the new post.">
+								<input class="form-control" name="title_tr" type="text" placeholder="Türkçe Başlık*" required="required" data-validation-required-message="Lütfen başlık giriniz.">
 								<p class="help-block text-danger"></p>
 							</div>
 							<div class="form-group">
-								<textarea class="form-control" name="content" placeholder="Content *" style="min-height: 250px;" required="required" data-validation-required-message="Please enter the content of the new post."></textarea>
+								<textarea class="form-control" name="content_tr" placeholder="Türkçe İçerik *" style="min-height: 250px;" required="required" data-validation-required-message="Lütfen içerik giriniz."></textarea>
+								<p class="help-block text-danger"></p>
+							</div>
+							<div class="form-group">
+								<input class="form-control" name="title_en" type="text" placeholder="İngilizce Başlık *" required="required" data-validation-required-message="Please enter the title of the new post.">
+								<p class="help-block text-danger"></p>
+							</div>
+							<div class="form-group">
+								<textarea class="form-control" name="content_en" placeholder="İngilizce İçerik *" style="min-height: 250px;" required="required" data-validation-required-message="Please enter the content of the new post."></textarea>
+								<p class="help-block text-danger"></p>
+							</div>
+							<div class="form-group">
+								<input class="form-control" name="title_ar" type="text" placeholder="Arapça Başlık*" required="required" data-validation-required-message="Please enter the title of the new post.">
+								<p class="help-block text-danger"></p>
+							</div>
+							<div class="form-group">
+								<textarea class="form-control" name="content_ar" placeholder="Arapça İçerik *" style="min-height: 250px;" required="required" data-validation-required-message="Please enter the content of the new post."></textarea>
 								<p class="help-block text-danger"></p>
 							</div>
 						</div>
@@ -73,7 +97,7 @@
 						<div class="clearfix"></div>
 						<div class="col-lg-12 text-center">
 							<div id="success"></div>
-							<button class="main-btn" type="submit">Save</button>
+							<button class="main-btn" type="submit">Kaydet</button>
 						</div>
 					</div>
 				</form>

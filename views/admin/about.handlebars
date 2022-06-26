@@ -18,18 +18,26 @@
 				<table class="table">
 					<thead>
 						<tr>
-							<th>Title</th>
-							<th>Content</th>
-							<th>EDIT</th>
+							<th>Türkçe Başlık</th>
+							<th>İngilizce Başlık</th>
+							<th>Title AR</th>
+							<th>Türkçe İçerik</th>
+							<th>İngilizce İçerik</th>
+							<th>Arapça İçerik</th>
+							<th>Düzenle</th>
 						</tr>
 					</thead>
 					<tbody>
 						{{#each about}}
 						<tr>
-							<td>{{title}}</td>
-							<td>{{content}}</td>
+							<td>{{title_tr}}</td>
+							<td>{{title_en}}</td>
+							<td>{{title_ar}}</td>
+							<td>{{content_tr}}</td>
+							<td>{{content_en}}</td>
+							<td>{{content_ar}}</td>
 							<td>
-								<a class="btn btn-warning" href="/admin/about/edit/{{_id}}">EDIT</a>
+								<a class="btn btn-warning" href="/admin/about/edit/{{_id}}">Düzenle</a>
 							</td>
 						
 						</tr>

@@ -5,7 +5,6 @@ const User = require('../models/User')
 
 
 router.get('/login', (req, res) => {
-    console.log({message: req.t('server_is_running')})
     res.render('site/login')
 })
  

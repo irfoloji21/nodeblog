@@ -9,7 +9,7 @@
 			<div class="row text-center">
 				<div class="col-md-4 offset-md-4">
 					<div class="section-header">
-						<h2 class="title">{{title}}</h2>
+						<h2 class="title"> {{selection_helper (lookup ../myselect 'selection') title_tr title_en title_ar}}</h2>
 					</div>
 				</div>
 			</div>
@@ -21,7 +21,7 @@
 					<div class="bg-main text-center h-100 project">
 						<div class="d-flex h-100">
 							<div class="project-text w-100 my-auto text-center text-lg-left">
-								<p style="font-size: 18px;" class="mb-3 text-white">{{content}}
+								<p style="font-size: 18px;" class="mb-3 text-white"> {{selection_helper (lookup ../myselect 'selection') content_en content_tr content_ar}}
 </p>
 
 							</div>

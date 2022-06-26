@@ -40,11 +40,19 @@ router.get('/service', (req,res) => {
 })
 
 router.post('/categories', (req,res) => {
-    Category.create(req.body, (error, category)=> {
-        if(!error) {
-            res.redirect('categories')
-        }
-    })
+    
+    Category.create({
+        ...req.body,
+        author: req.session.userId
+    },  )
+
+    req.session.sessionFlash = {
+      type: 'alert alert-success',
+      message: 'Postunuz başarılı bir şekilde oluşturuldu'
+    }
+
+
+    res.redirect('/admin/categories')
 })
 
 router.delete('/categories/:id', (req,res) => {
@@ -72,14 +80,15 @@ router.delete('/posts/:id', (req,res) => {
   })
 
   router.get('/posts/edit/:id', (req,res) => {
-    Post.findOne({_id: req.params.id}).lean().then(post => {
+ 
+    Post.findOne({_id: req.params.id}).populate({path:'category', model: Category}).lean().then(post => {
         Category.find({}).lean().then(categories => {
             Language.find({}).lean().then(language => {
             res.render('admin/editpost', {post:post,categories:categories,language:language})
         })
         })
     })
-})
+}) 
 
 router.get('/categories/edit/:id', (req,res) => {
  
@@ -114,11 +123,15 @@ router.put('/posts/:id',  (req,res) => {
     post_image.mv(path.resolve(__dirname, '../../public/img/postimages', post_image.name))
 
     Post.findOne({_id: req.params.id}).then(post => {
-        post.title = req.body.title
-        post.content = req.body.content
+        post.title_tr = req.body.title_tr
+        post.title_en = req.body.title_en
+        post.title_ar = req.body.title_ar
+        post.content_tr = req.body.content_tr
+        post.content_en = req.body.content_en
+        post.content_ar = req.body.content_ar
         post.language = req.body.language
         post.date = req.body.date
-        post.category = req.body.category
+        post.category_id = req.body.category_id
         post.post_image= `/img/postimages/${post_image.name}`
 
         post.save().then(post => {
@@ -130,7 +143,9 @@ router.put('/posts/:id',  (req,res) => {
 router.put('/categories/:id',  (req,res) => {
 
     Category.findOne({_id: req.params.id}).then(category => {
-        category.name = req.body.name
+        category.name_tr = req.body.name_tr
+        category.name_en = req.body.name_en
+        category.name_ar = req.body.name_ar
        
 
         category.save().then(post => {
@@ -160,8 +175,12 @@ router.put('/about/:id',  (req,res) => {
     about_image.mv(path.resolve(__dirname, '../../public/img/postimages', about_image.name))
 
     About.findOne({_id: req.params.id}).then(about => {
-        about.title = req.body.title
-        about.content = req.body.content
+        about.title_tr = req.body.title_tr
+        about.title_en = req.body.title_en
+        about.title_ar = req.body.title_ar
+        about.content_en = req.body.content_tr
+        about.content_tr = req.body.content_en
+        about.content_ar = req.body.content_ar
         about.about_image= `/img/postimages/${about_image.name}`
 
         about.save().then(post => {
@@ -173,8 +192,12 @@ router.put('/about/:id',  (req,res) => {
 router.put('/service/:id',  (req,res) => {
 
     Service.findOne({_id: req.params.id}).then(service => {
-        service.title = req.body.title
-        service.content = req.body.content
+        service.title_tr = req.body.title_tr
+        service.title_en = req.body.title_en
+        service.title_ar = req.body.title_ar
+        service.content_tr = req.body.content_tr
+        service.content_en = req.body.content_en
+        service.content_ar = req.body.content_ar
        
 
         service.save().then(post => {

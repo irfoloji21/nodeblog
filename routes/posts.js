@@ -6,6 +6,7 @@ const Category = require('../models/Category')
 const User = require('../models/User')
 const Contact = require('../models/Contact')
 const Language = require('../models/Language')
+const mySelect = require('../models/mySelect')
 
 router.get('/new', (req,res) => {
   if(!req.session.userId){
@@ -73,7 +74,7 @@ router.get('/category/:categoryId', (req, res)=> {
     res.render('site/blog', {posts:posts, categories:categories})
   })
   })
-})
+})  
 
 router.get("/:id", (req, res) => {
     Post.findById(req.params.id).populate({path:'author', model: User}).then((post) => {
@@ -94,12 +95,26 @@ router.get("/:id", (req, res) => {
             }
         }
     ]).then(categories => {
+      mySelect.findById('62aa458986e5843110be6cea').lean().then(myselect => {
+      mySelect.find().lean().then(select => {
         Post.find({}).populate({path:'author', model: User}).lean().sort({$natural:-1}).lean().then(posts => {
           Contact.find({}).lean().then(contact => {
-          res.render('site/post', {post:post.toJSON(), categories:categories, posts:posts, contact:contact})
+            Category.find({}).lean().then(category => {
+          res.render('site/post', {
+            post:post.toJSON(), 
+            categories:categories, 
+            posts:posts, 
+            contact:contact, 
+            select:select,
+            myselect:myselect,
+            category:category
+            })
         })
         })
+      })
     })
+  })
+})
     });
   });
 
@@ -126,5 +141,28 @@ router.post('/test', (req,res) => {
 
     res.redirect('/posts/new')
 })
+ 
 
+// router.post('/language', (req,res) => {
+
+//   console.log(req.body)
+//   mySelect.remove({})
+
+
+
+//   res.redirect('back')
+// })
+
+router.put('/language/:id', (req,res) => {
+ 
+console.log(req.body)
+  mySelect.findOne({_id: req.params.id}).then(selection => {
+    selection.selection = req.body.selection
+   
+
+    selection.save().then(post => {
+        res.redirect('back')
+    })
+})
+})
 module.exports = router

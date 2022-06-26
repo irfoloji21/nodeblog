@@ -14,11 +14,10 @@
     <div class="widget">
         <h3 class="mb-3 lang" data-key="CATEGORIES">Categories</h3>
         <div class="widget-category">
-            {{#each categories}}
-            <a href="/posts/category/{{_id}}">{{name}}<span>({{num_of_posts}})</span></a>
+            {{#each category}}
+            <a href="/posts/category/{{_id}}">{{name_tr}}</a>
             {{/each}}
         </div>
     </div>
-
 
 </aside>

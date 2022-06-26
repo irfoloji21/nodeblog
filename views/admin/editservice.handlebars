@@ -1,6 +1,6 @@
 
 <section class="page-image page-image-about md-padding">
-	<h1 class="text-white text-center">SERVICES</h1>
+	<h1 class="text-white text-center">HİZMETLER</h1>
 </section>
 
 <!--==========================
@@ -17,7 +17,7 @@
 			<div class="row text-center">
 				<div class="col-md-4 offset-md-4">
 					<div class="section-header">
-						<h2 class="title">Services</h2>
+						<h2 class="title">Hizmetler</h2>
 					</div>
 				</div>
 			</div>
@@ -29,19 +29,37 @@
 					<div class="row">
 						<div class="offset-2 col-md-12">
                             <div class="form-group">
-								<input class="form-control" name="title" type="text" placeholder="Title *" value="{{service.title}}" required="required" data-validation-required-message="Please enter the title of the new post.">
+								<input class="form-control" name="title_tr" type="text" placeholder="Türkçe Başlık *" value="{{service.title_tr}}" required="required" data-validation-required-message="Please enter the title of the new post.">
 								<p class="help-block text-danger"></p>
 							</div>
 							<div class="form-group">
-								<textarea class="form-control" name="content" placeholder="Content *"  style="min-height: 250px;" required="required" data-validation-required-message="Please enter the content of the new post.">{{service.content}}</textarea>
+								<textarea class="form-control" name="content_tr" placeholder="Türkçe İçerik*"  style="min-height: 250px;" required="required" data-validation-required-message="Lütfen içerik giriniz.">{{service.content_tr}}</textarea>
 								<p class="help-block text-danger"></p>
 							</div>
+							 <div class="form-group">
+								<input class="form-control" name="title_en" type="text" placeholder="İngilizce Başlık*" value="{{service.title_en}}" required="required" data-validation-required-message="Please enter the title of the new post.">
+								<p class="help-block text-danger"></p>
+							</div>
+							<div class="form-group">
+								<textarea class="form-control" name="content_en" placeholder="İngilizce İçerik*"  style="min-height: 250px;" required="required" data-validation-required-message="Please enter the content of the new post.">{{service.content_en}}</textarea>
+								<p class="help-block text-danger"></p>
+							</div>
+							 <div class="form-group">
+								<input class="form-control" name="title_ar" type="text" placeholder="Arapça Başlık*" value="{{service.title_ar}}" required="required" data-validation-required-message="Please enter the title of the new post.">
+								<p class="help-block text-danger"></p>
+							</div>
+							<div class="form-group">
+								<textarea class="form-control" name="content_ar" placeholder="Arapça İçerik *"  style="min-height: 250px;" required="required" data-validation-required-message="Lütfen içerik giriniz.">{{service.content_ar}}</textarea>
+								<p class="help-block text-danger"></p>
+							</div>
+							
+							
 						</div>
 					
 						<div class="clearfix"></div>
 						<div class="col-lg-12 text-center">
 							<div id="success"></div>
-							<button class="main-btn" type="submit">Save</button>
+							<button class="main-btn" type="submit">Kaydet</button>
 						</div>
 					</div>
 				</form>
@@ -50,33 +68,6 @@
 		</div>
 
 	</div>
-		</div>
-	</div>
-</section>
-	<div class="mb-5"></div>
-		<div class="row">
-			<div class="col-md-4">
-				<form action="/admin/service/{{service._id}}?_method=PUT" method="POST" enctype="multipart/form-data">
-					<div class="row">
-						<div class="col-md-10">
-							<div class="form-group">
-								<span>Name</span>
-								<input class="form-control" name="name" type="text" value="{{categories.name}}" placeholder="Category Name *"
-									required="required"
-									data-validation-required-message="Please enter category name.">
-								<p class="help-block text-danger"></p>
-							</div>
-						</div>
-
-						<div class="clearfix"></div>
-						<div class="col-lg-12">
-							<div id="success"></div>
-							<button class="main-btn" style="margin-left: 0;" type="submit">Save</button>
-						</div>
-					</div>
-				</form>
-			</div>
-			
 		</div>
 	</div>
 </section>

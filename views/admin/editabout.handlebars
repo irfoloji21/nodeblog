@@ -30,13 +30,33 @@
 					<div class="row">
 						<div class="offset-2 col-md-12">
                             <div class="form-group">
-								<span>Title</span>
-								<input class="form-control" name="title" type="text" value="{{about.title}}" placeholder="Title *" required="required" data-validation-required-message="Please enter the title of the new post.">
+								<span>Türkçe Başlık</span>
+								<input class="form-control" name="title_tr" type="text" value="{{about.title_tr}}" placeholder="Türkçe Başlık*" required="required" data-validation-required-message="Lütfen başlık giriniz.">
 								<p class="help-block text-danger"></p>
 							</div>
 							<div class="form-group">
-								<span>Content</span>
-								<textarea class="form-control" name="content" placeholder="Content *" style="min-height: 250px;" required="required" data-validation-required-message="Please enter the content of the new post.">{{about.content}}</textarea>
+								<span>İngilizce Başlık</span>
+								<input class="form-control" name="title_en" type="text" value="{{about.title_en}}" placeholder="İngilizce Başlık*" required="required" data-validation-required-message="Please enter the title of the new post.">
+								<p class="help-block text-danger"></p>
+							</div>
+							<div class="form-group">
+								<span>Title AR</span>
+								<input class="form-control" name="title_ar" type="text" value="{{about.title_ar}}" placeholder="Title AR*" required="required" data-validation-required-message="Please enter the title of the new post.">
+								<p class="help-block text-danger"></p>
+							</div>
+							<div class="form-group">
+								<span>Türkçe İçerik</span>
+								<textarea class="form-control" name="content_tr" placeholder="Türkçe İçerik*" style="min-height: 250px;" required="required" data-validation-required-message="Lütfen içerik giriniz.">{{about.content_tr}}</textarea>
+								<p class="help-block text-danger"></p>
+							</div>
+							<div class="form-group">
+								<span>İngilizce İçerik</span>
+								<textarea class="form-control" name="content_en" placeholder="İngilizce İçerik*" style="min-height: 250px;" required="required" data-validation-required-message="Please enter the content of the new post.">{{about.content_en}}</textarea>
+								<p class="help-block text-danger"></p>
+							</div>
+							<div class="form-group">
+								<span>Arapça İçerik</span>
+								<textarea class="form-control" name="content_ar" placeholder="Arapça İçerik*" style="min-height: 250px;" required="required" data-validation-required-message="Please enter the content of the new post.">{{about.content_ar}}</textarea>
 								<p class="help-block text-danger"></p>
 							</div>
 							<div class="form-group">

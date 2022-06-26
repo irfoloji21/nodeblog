@@ -1,6 +1,6 @@
 <nav class="navbar navbar-container navbar-expand-lg navbar-dark fixed-top" id="mainNav">
 	<div class="container">
-		<img src="img/logo.png" alt="">
+		<a href="/"><img src="img/logo.png" alt=""></a>
 		{{!-- <a class="navbar-brand js-scroll-trigger" href="/">NODEW</a> --}}
 		<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
 			data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
@@ -8,32 +8,31 @@
 			Menu
 			<i class="fas fa-bars"></i>
 		</button>
-
-
 		<div class="collapse navbar-collapse" id="navbarResponsive">
 			<ul class="navbar-nav text-uppercase ml-auto">
-
-
-
 				{{#unless displayLink}}
 				<li class="nav-item">
 					<a class="nav-link lang" data-key="HOME" href="/">Home</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link lang" data-key="PRODUCTS" href="/blog">Products</a>
+					<a class="nav-link lang" data-key="ABOUT" href="/about">About us</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link lang" data-key="ABOUT" href="/about">About us</a>
+					<a class="nav-link lang" data-key="PRODUCTS" href="/blog">Products</a>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link lang" data-key="CONTACT" href="/contact">Contact / Location</a>
 				</li>
-				
-    <select name="selection" id="mySelect">
-<option value="en" data-lang="en-gb" selected>EN</option>
-<option value="tr" data-lang="tr-tr"  >TR</option>
- 
-</select>
+				{{#each select}}
+				<form action="/posts/language/{{_id}}?_method=PUT" method="POST" enctype="multipart/form-data">
+					<select name="selection" id="mySelect">
+						<option value="en-gb" data-lang="en-gb">EN</option>
+						<option value="tr-tr" data-lang="tr-tr">TR</option>
+						<option value="ar-XA" data-lang="ar-XA">عربي</option>
+					</select>
+					<input id="button" type="submit" style="display: none;">
+				</form>
+				{{/each}}
 				{{/unless}}
 				{{!--
 				<li class="nav-item">
@@ -42,15 +41,9 @@
 				--}}
 				{{#if displayLink}}
 				<li class="nav-item">
-					<a class="nav-link" href="/users/logout">Logout</a>
+					<a class="nav-link" href="/users/logout">Çıkış</a>
 				</li>
 				{{/if}}
-
-
-
-
-
-			
 			</ul>
 		</div>
 	</div>
