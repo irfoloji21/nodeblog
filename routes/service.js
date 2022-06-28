@@ -16,11 +16,6 @@ router.post('/test', (req,res) => {
         author: req.session.userId
     },  )
 
-    req.session.sessionFlash = {
-      type: 'alert alert-success',
-      message: 'Postunuz başarılı bir şekilde oluşturuldu'
-    }
-
 
     res.redirect('/admin/service')
 })

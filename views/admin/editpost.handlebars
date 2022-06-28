@@ -10,8 +10,8 @@
 		<div class="row text-center">
 			<div class="col-md-4 offset-md-4">
 				<div class="section-header">
-					<h2 class="title">Düzenle POST</h2>
-						{{post.category_id}}
+					<h2 class="title">POST Düzenle</h2>
+					
 				</div>
 			</div>
 		</div>
@@ -25,8 +25,7 @@
 							<div class="form-group">
 								<span>Başlık</span>
 								<input class="form-control" name="title_tr" type="text" value="{{post.title_tr}}"
-									required="required"
-									data-validation-required-message="Lütfen başlık giriniz.">
+									required="required" data-validation-required-message="Lütfen başlık giriniz.">
 								<p class="help-block text-danger"></p>
 							</div>
 							<div class="form-group">
@@ -48,7 +47,7 @@
 									data-validation-required-message="Please enter the content of the new post.">{{post.content_en}}</textarea>
 								<p class="help-block text-danger"></p>
 							</div>
-								<div class="form-group">
+							<div class="form-group">
 								<span>Title</span>
 								<input class="form-control" name="title_ar" type="text" value="{{post.title_ar}}"
 									required="required"
@@ -63,13 +62,13 @@
 							</div>
 							<div class="form-group">
 								<span>Category</span>
-								<select class="form-control" name="category"  id="irfan" >
+								<select class="form-control" name="category_id">
 									{{#each categories}}
-									<option value="{{_id}}">{{name_tr}}</option>
+									<option id="kategori" value="{{_id}}" {{editHelper (lookup ../post 'category_id') _id}}>{{name_tr}} </option>
 									{{/each}}
 								</select>
 							</div>
-						
+
 							<div class="form-group">
 								{{!-- <span>Image</span> --}}
 								{{!-- <input src="{{post.post_image}}" class="form-control" name="post_image"
@@ -77,10 +76,9 @@
 									data-validation-required-message="Please upload an image.">
 								<p class="help-block text-danger"></p> --}}
 								<p><label for="file" style="cursor: pointer;">Upload Image</label></p>
-								<p><input class="form-control" type="file" name="post_image" value="{{post.post_image}}"
-										onchange="loadFile(event)"></p>
+								<p><input class="form-control" type="file" name="post_image" onchange="loadFile(event)" required="required" data-validation-required-message="Please upload an image."></p>
 
-									{{!-- <img src="{{post.post_image}}" alt="" srcset=""> --}}
+								{{!-- <img src="{{post.post_image}}" alt="" srcset=""> --}}
 								<script>
 									var loadFile = function (event) {
 										var post_image = document.getElementById('output');
@@ -90,20 +88,7 @@
 							</div>
 
 						</div>
-
-
-					<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-					<script>
-						
-
-							var irfan = document.getElementById("irfan");
-      						console.log(irfan);
-							  
-
-						</script>
-
-
-
+						<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 						<div class="clearfix"></div>
 						<div class="col-lg-12 text-center">
 							<div id="success"></div>

@@ -31,10 +31,8 @@
 								<img src="{{post_image}}" class="img-fluid">
 							</div>
 							<div class="blog-content" id="irfan">
-								<p style="display: none;" id="lang">{{language_helper language}}</p>
-								{{!-- eskisi --- {{language_title language title_en title_tr}}  --}}
 								<h3>{{selection_helper (lookup ../myselect 'selection') title_tr title_en title_ar}}</h3> 
-								<p>{{selection_helper (lookup ../myselect 'selection') content_tr content_en content_ar}}</p>
+								<p class="description">{{selection_helper (lookup ../myselect 'selection') content_tr content_en content_ar}}</p>
 								<a href="/posts/{{_id}}" class="lang" data-key="READ_MORE">Read More</a>
 							</div>
 							<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
@@ -74,7 +72,6 @@
 						} else {
 							document.getElementById("filter").style.display = "none"
 						}
-						if ("{{language_helper language}}" == e.value) console.log("asdadasd")
 
 					}
 				});

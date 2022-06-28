@@ -7,7 +7,7 @@ const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
 const fileUpload = require('express-fileupload')
 const loader = require('handlebars-loader')
-const { generateDate, limit, truncate, i18n, language_title, language_helper, filter, selection_helper } = require('./helpers/hbs')
+const { generateDate, limit, truncate, i18n, selection_helper, editHelper} = require('./helpers/hbs')
 const expressSession = require('express-session')
 const connectMongo = require('connect-mongo')
 const methodOverride = require('method-override')
@@ -42,10 +42,8 @@ const hbs = exphbs.create({
         limit: limit,
         truncate: truncate,
         i18n: i18n,
-        language_title: language_title,
-        language_helper: language_helper,
-        filter: filter,
-        selection_helper: selection_helper
+        selection_helper: selection_helper,
+        editHelper: editHelper
 
     }
 })

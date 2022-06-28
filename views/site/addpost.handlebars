@@ -99,7 +99,7 @@
 								<p class="help-block text-danger"></p> --}}
 
 								<p><label for="file" style="cursor: pointer;">Upload Image</label></p>
-								<p><input class="form-control" type="file" accept="image/*" name="post_image" id="file" onchange="loadFile(event)" ></p>
+								<p><input class="form-control" type="file" accept="image/*" name="post_image" id="file"  onchange="loadFile(event)" required="required" data-validation-required-message="Please upload an image."></p>
 								<p><img id="output" width="200" /></p>
 								
 								<script>

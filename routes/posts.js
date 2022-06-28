@@ -7,6 +7,7 @@ const User = require('../models/User')
 const Contact = require('../models/Contact')
 const Language = require('../models/Language')
 const mySelect = require('../models/mySelect')
+const MySelect = require('../models/mySelect')
 
 router.get('/new', (req,res) => {
   if(!req.session.userId){
@@ -28,7 +29,8 @@ function escapeRegex(text) {
 router.get("/search", (req, res) => {
   if (req.query.look) {
     const regex = new RegExp(escapeRegex(req.query.look), 'gi');
-    Post.find({ "title": regex }).populate({path:'author', model: User}).lean().sort({$natural:-1}).lean().then(posts => {
+    Post.find().or([{ 'title_tr': regex}, { 'title_en': regex }, { 'title_ar': regex}]).populate({path:'author', model: User}).lean().sort({$natural:-1}).lean().then(posts => {
+      
       Category.aggregate([
         {
             $lookup:{
@@ -46,14 +48,29 @@ router.get("/search", (req, res) => {
             }
         }
     ]).then(categories => {
-      res.render('site/blog', {posts:posts, categories:categories})
+      MySelect.findById('62aa458986e5843110be6cea').lean().then(myselect => {
+        MySelect.find().lean().then(select => {
+        Contact.find({}).lean().then(contact => {
+        Category.find({}).lean().then(category => {
+            res.render('site/blog', {
+                posts:posts, 
+                categories:categories,
+                myselect:myselect,
+                select:select,
+                contact:contact,
+                category:category
+            })
+        })
+      })
+      });
     })
-    });
+})
+    })
   }
 })
 
 router.get('/category/:categoryId', (req, res)=> {
-  Post.find({category:req.params.categoryId}).populate({path:'category', model:Category}).populate({path:'author', model: User}).lean().then(posts => {
+  Post.find({category:req.params.categoryId}).populate({path:'category_id', model:Category}).populate({path:'author', model: User}).lean().then(posts => {
     Category.aggregate([
       {
           $lookup:{
@@ -71,7 +88,22 @@ router.get('/category/:categoryId', (req, res)=> {
           }
       }
   ]).then(categories => {
-    res.render('site/blog', {posts:posts, categories:categories})
+    MySelect.findById('62aa458986e5843110be6cea').lean().then(myselect => {
+    MySelect.find().lean().then(select => {
+    Contact.find({}).lean().then(contact => {
+    Category.find({}).lean().then(category => {
+        res.render('site/blog', {
+            posts:posts, 
+            categories:categories,
+            myselect:myselect,
+            select:select,
+            contact:contact,
+            category:category
+        })
+    })
+  })
+  });
+})
   })
   })
 })  

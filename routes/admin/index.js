@@ -39,21 +39,6 @@ router.get('/service', (req,res) => {
 })
 })
 
-router.post('/categories', (req,res) => {
-    
-    Category.create({
-        ...req.body,
-        author: req.session.userId
-    },  )
-
-    req.session.sessionFlash = {
-      type: 'alert alert-success',
-      message: 'Postunuz başarılı bir şekilde oluşturuldu'
-    }
-
-
-    res.redirect('/admin/categories')
-})
 
 router.delete('/categories/:id', (req,res) => {
   Category.remove({_id : req.params.id}).then(()=>{
