@@ -104,10 +104,13 @@ router.get('/service/edit/:id', (req,res) => {
 })
 
 router.put('/posts/:id',  (req,res) => {
-    let post_image = req.files.post_image
-    post_image.mv(path.resolve(__dirname, '../../public/img/postimages', post_image.name))
-
     Post.findOne({_id: req.params.id}).then(post => {
+        if(req.files && req.files.post_image) {
+            const post_image = req.files.post_image
+            post_image.mv(path.resolve(__dirname, '../../public/img/postimages', post_image.name))
+            post.post_image= `/img/postimages/${post_image.name}`
+        }
+
         post.title_tr = req.body.title_tr
         post.title_en = req.body.title_en
         post.title_ar = req.body.title_ar
@@ -117,7 +120,8 @@ router.put('/posts/:id',  (req,res) => {
         post.language = req.body.language
         post.date = req.body.date
         post.category_id = req.body.category_id
-        post.post_image= `/img/postimages/${post_image.name}`
+        
+        
 
         post.save().then(post => {
             res.redirect('/posts/new')

@@ -12,7 +12,7 @@ const PostSchema = new mongoose.Schema({
     date: { type:Date, default: Date.now },
     category_id: { type: Schema.Types.ObjectId, ref:'categories'},
     language: { type: Schema.Types.ObjectId, ref:'languages'},
-    post_image: { type: String, require:true }
+    post_image: { type: String }
 })
 
 module.exports = mongoose.model('Post', PostSchema)
