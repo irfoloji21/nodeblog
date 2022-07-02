@@ -23,9 +23,10 @@ module.exports = {
         return i18n.__.apply(this, arguments);
     },
     selection_helper: (abc, selection, title, arabic) => {
-        // selection = türkçe başlık
+        // selection = türkçe veri
         // abc = seçili dil
-        // title = ingilizce başlık
+        // title = ingilizce veri
+        // arabic = arabic veri
         console.log(abc)
         console.log(selection)
         console.log(title)

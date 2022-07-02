@@ -128,15 +128,15 @@ router.get("/:id", (req, res) => {
             }
         }
     ]).then(categories => {
-      mySelect.findById('62aa458986e5843110be6cea').lean().then(myselect => {
-      mySelect.find().lean().then(select => {
-        Post.find({}).populate({path:'author', model: User}).lean().sort({$natural:-1}).lean().then(posts => {
+      
+      MySelect.findOne().lean().then(myselect => {
+      MySelect.find().lean().then(select => {
+        
           Contact.find({}).lean().then(contact => {
             Category.find({}).lean().then(category => {
           res.render('site/post', {
             post:post.toJSON(), 
             categories:categories, 
-            posts:posts, 
             contact:contact, 
             select:select,
             myselect:myselect,
@@ -149,7 +149,7 @@ router.get("/:id", (req, res) => {
   })
 })
     });
-  });
+  
 
 
 

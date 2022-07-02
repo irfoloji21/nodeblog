@@ -14,8 +14,8 @@
 						<img class="img-fluid" src="{{post.post_image}}" alt="">
 					</div>
 					<div class="blog-content">
-						<h3> {{selection_helper (lookup ../myselect 'selection') post.title_tr post.title_en post.title_ar}}</h3>
-						<p>{{selection_helper (lookup ../myselect 'selection') post.content_tr post.content_en post.content_ar}}</p>
+						<h3> {{selection_helper myselect.selection post.title_tr post.title_en post.title_ar}}</h3>
+						<p>{{selection_helper myselect.selection post.content_tr post.content_en post.content_ar}}</p>
 					</div>
 
 
