@@ -6,7 +6,6 @@ const hostname = '127.0.0.1'
 const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
 const fileUpload = require('express-fileupload')
-const loader = require('handlebars-loader')
 const { generateDate, limit, truncate, i18n, selection_helper, editHelper} = require('./helpers/hbs')
 const expressSession = require('express-session')
 const connectMongo = require('connect-mongo')

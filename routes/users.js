@@ -3,7 +3,9 @@ const router = express.Router()
 const User = require('../models/User')
 
 
-
+router.get('/register', (req, res) => {
+    res.render('admin/index')
+})
 router.get('/login', (req, res) => {
     res.render('site/login')
 })

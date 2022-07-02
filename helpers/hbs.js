@@ -26,7 +26,11 @@ module.exports = {
         // selection = türkçe başlık
         // abc = seçili dil
         // title = ingilizce başlık
-   
+        console.log(abc)
+        console.log(selection)
+        console.log(title)
+        console.log(arabic) 
+
  
          if (abc == "tr-tr") return selection
          else if (abc== "en-gb") return  title
