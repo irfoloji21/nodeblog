@@ -26,7 +26,7 @@ router.get('/', (req, res) => {
     })
 })
 
-router.get('/blog', (req, res) => {
+router.get('/products', (req, res) => {
 
 
     Post.find({}).populate({ path: 'author', model: User }).populate({ path: 'category', model: Category }).lean().sort({ $natural: -1 }).lean()
@@ -53,6 +53,7 @@ router.get('/blog', (req, res) => {
                     MySelect.find().lean().then(select => {
                         Contact.find({}).lean().then(contact => {
                             Category.find().lean().then(category => {
+                                Category.findOne().lean().then(iscategory => {
 
                                 res.render('site/blog', {
                                     myselect: myselect,
@@ -60,7 +61,9 @@ router.get('/blog', (req, res) => {
                                     categories: categories,
                                     contact: contact,
                                     select: select,
-                                    category: category
+                                    category: category,
+                                    iscategory: iscategory
+                                    })
                                 })
                             })
                         })
@@ -106,4 +109,4 @@ router.get('/about', (req, res) => {
 
 
 
-module.exports = router
+module.exports = router 

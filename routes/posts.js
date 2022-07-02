@@ -10,13 +10,14 @@ const mySelect = require('../models/mySelect')
 const MySelect = require('../models/mySelect')
 
 router.get('/new', (req,res) => {
-  // if(!req.session.userId){
-  //   res.redirect('/users/login')
-  // }
+  if(!req.session.userId){
+    res.redirect('/users/login')
+  }
       Post.find({}).populate({path:'category', model: Category}).lean().sort({$natural:-1}).lean().then(posts => {
         Category.find({}).lean().then(categories => {
             Language.find({}).lean().then(language => {
           res.render('site/addpost', {posts:posts, categories:categories, language:language})
+          console.log(req.session)
         })
       })
   })

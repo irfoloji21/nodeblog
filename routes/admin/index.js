@@ -8,32 +8,44 @@ const Service = require('../../models/Service')
 const Language = require('../../models/Language')
 const path = require('path')
 
-router.get('/', (req,res) => {-
+router.get('/', (req,res) => {
+    if(!req.session.userId){
+        res.redirect('/users/login')
+      }
     res.render('admin/index')
 })
 
 router.get('/categories', (req,res) => {
+    if(!req.session.userId){
+        res.redirect('/users/login')
+      }
     Category.find({}).sort({$natural:-1}).lean().then(categories =>  {
         res.render('admin/categories', {categories:categories})
     })
 })
 
 router.get('/about', (req,res) => {
-  
+    if(!req.session.userId){
+        res.redirect('/users/login')
+      }
     About.find({}).lean().then(about => {
         res.render('admin/about', {about:about})
 })
 })
 
 router.get('/contact', (req,res) => {
-  
+    if(!req.session.userId){
+        res.redirect('/users/login')
+      }
     Contact.find({}).lean().then(contact => {
         res.render('admin/contact', {contact:contact})
 })
 })
 
 router.get('/service', (req,res) => {
-  
+    if(!req.session.userId){
+        res.redirect('/users/login')
+      }
     Service.find({}).lean().then(service => {
         res.render('admin/service', {service:service})
 })

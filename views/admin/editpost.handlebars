@@ -1,5 +1,5 @@
 <section class="page-image page-image-contact md-padding">
-	<h1 class="text-white text-center">POST DÜZENLE</h1>
+	<h1 class="text-white text-center">Ürün Düzenle</h1>
 </section>
 <!--==========================
     Contact Section
@@ -10,7 +10,7 @@
 		<div class="row text-center">
 			<div class="col-md-4 offset-md-4">
 				<div class="section-header">
-					<h2 class="title">POST Düzenle</h2>
+					<h2 class="title">Ürün Düzenle</h2>
 
 				</div>
 			</div>
@@ -21,7 +21,7 @@
 				<form action="/admin/posts/{{post._id}}?_method=PUT" method="POST" enctype="multipart/form-data">
 					<input type="hidden" name="_method" value="PUT">
 					<div class="row">
-						<div class="offset-2 col-md-8">
+						<div class="offset-md-2 col-md-8">
 							<div class="form-group">
 								<span>Başlık</span>
 								<input class="form-control" name="title_tr" type="text" value="{{post.title_tr}}"
@@ -73,7 +73,7 @@
 								<span>Image</span>
 								<input value="{{post.post_image}}" class="form-control" name="post_image" type="file" onchange="loadFile(event)">
 								<p class="help-block text-danger"></p>
-								<img src="{{post.post_image}}" id="output">
+								<img style="    max-width: 100%;" src="{{post.post_image}}" id="output">
 
 								<script>
 									var loadFile = function (event) {

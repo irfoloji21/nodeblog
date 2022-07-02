@@ -40,6 +40,11 @@ module.exports = {
     editHelper: (post, kategori) => {
         // post = post tablosundan gelen kategori id
         // kategori = kategori tablosundan gelen idler
-        if ( kategori.toString()==post.toString() ) return "selected" 
+        if ( kategori.toString()==post ) return "selected" 
+    },
+    iscategory: (category) => {
+        if(!category) {
+            return "display: none;"
+        }
     }
 }

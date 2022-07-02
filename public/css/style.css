@@ -6,6 +6,23 @@ AUTHOR: ARIN YAZILIM
 /*----------------
 GENERAL SETTINGS
 -----------------*/
+@media only screen and (max-width: 800px)
+{
+    .navbar {
+    padding: 0 !important;
+    background-color: #fd8a10 !important;
+}
+.mobil-logo {
+    width: 100px;
+    margin-left: 10px;
+}
+}
+
+
+#mySelect {
+    height: 25px;
+    margin-top: 10px;
+}
 .description {
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 6;
