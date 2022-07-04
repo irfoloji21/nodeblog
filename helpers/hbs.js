@@ -9,7 +9,6 @@ module.exports = {
         return arr.slice(0, limit)
     },
     truncate: (content_en, content_tr, len, value) => {
-        console.log(value)
         if (value == "62926f296ea9b3ab8b5b6c31") {
             if (content_en.length > len) content_en = content_en.substring(0, len) + '...'
             return content_en
@@ -27,10 +26,7 @@ module.exports = {
         // abc = seçili dil
         // title = ingilizce veri
         // arabic = arabic veri
-        console.log(abc)
-        console.log(selection)
-        console.log(title)
-        console.log(arabic) 
+       
 
  
          if (abc == "tr-tr") return selection

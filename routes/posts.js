@@ -17,7 +17,6 @@ router.get('/new', (req,res) => {
         Category.find({}).lean().then(categories => {
             Language.find({}).lean().then(language => {
           res.render('site/addpost', {posts:posts, categories:categories, language:language})
-          console.log(req.session)
         })
       })
   })
@@ -176,19 +175,8 @@ router.post('/test', (req,res) => {
 })
  
 
-// router.post('/language', (req,res) => {
-
-//   console.log(req.body)
-//   mySelect.remove({})
-
-
-
-//   res.redirect('back')
-// })
-
 router.put('/language/:id', (req,res) => {
  
-console.log(req.body)
   mySelect.findOne({_id: req.params.id}).then(selection => {
     selection.selection = req.body.selection
    
