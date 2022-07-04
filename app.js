@@ -10,7 +10,9 @@ const { generateDate, limit, truncate, i18n, selection_helper, editHelper, iscat
 const expressSession = require('express-session')
 const connectMongo = require('connect-mongo')
 const methodOverride = require('method-override')
-mongoose.connect('mongodb://127.0.0.1/nodeblog_db', {
+
+
+mongoose.connect('mongodb+srv://irfoloji:21irrr21@cluster0.h2c1hue.mongodb.net/nodeblog_db', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true
