@@ -29,7 +29,8 @@
     "mongoose": "^5.7.3",
     "nodemailer": "^6.4.2",
     "nodemon": "^2.0.16",
-    "path": "^0.12.7"
+    "path": "^0.12.7",
+    "webpack": "^5.73.0"
   },
   "devDependencies": {}
 }
