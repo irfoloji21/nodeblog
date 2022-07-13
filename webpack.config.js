@@ -16,14 +16,14 @@ module.exports = {
           options: {helperDirs: path.resolve(__dirname, "./helpers")}
         }]
       }
-    ]
+    ],
+    plugins: [
+      new NodePolyfillPlugin()
+  ]
   },
   node: {
     fs: 'empty',
     module: 'empty',
     net: 'empty'
-  },
-  plugins: [
-    new NodePolyfillPlugin()
-]
+  }
 };
