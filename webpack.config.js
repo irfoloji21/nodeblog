@@ -19,7 +19,9 @@ module.exports = {
     ]
   },
   node: {
-    fs: 'empty'
+    fs: 'empty',
+    module: 'empty',
+    net: 'empty'
   },
   plugins: [
     new NodePolyfillPlugin()
