@@ -109,7 +109,6 @@ app.use('/about', about)
 app.use('/service', service)
 app.use('/categories', categories)
 
-app.listen(process.env.PORT || port, hostname, () => {
-    console.log(`server çalışıyor, https://${hostname}/`)})
+app.listen(process.env.PORT || 3000 )
   //  console.log(`server çalışıyor, http://${hostname}:${port}/`)})
 
