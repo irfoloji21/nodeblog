@@ -1,8 +1,9 @@
 const express = require('express')
 const exphbs = require('express-handlebars')
 const app = express()
-// const port = 3000
+const port = 3000
 const hostname = 'endukimcompany.herokuapp.com'
+// const hostname = '127.0.0.1'
 const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
 const fileUpload = require('express-fileupload')
@@ -109,6 +110,6 @@ app.use('/service', service)
 app.use('/categories', categories)
 
 app.listen(process.env.PORT || port, hostname, () => {
-    console.log(`server çalışıyor, https://${hostname}/`)
-})
+    console.log(`server çalışıyor, https://${hostname}/`)})
+  //  console.log(`server çalışıyor, http://${hostname}:${port}/`)})
 
