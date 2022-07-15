@@ -28,20 +28,20 @@
 				<form action="/admin/service/{{service._id}}?_method=PUT" method="POST" enctype="multipart/form-data">
 					<div class="row">
 						<div class="offset-2 col-md-12">
-                            <div class="form-group">
-								<input class="form-control" name="title_tr" type="text" placeholder="Türkçe Başlık *" value="{{service.title_tr}}" required="required" data-validation-required-message="Please enter the title of the new post.">
+							<div class="form-group">
+								<textarea class="form-control" name="title_tr" placeholder="Türkçe İçerik *" style="min-height: 250px;" >{{service.title_tr}}</textarea>
+								<p class="help-block text-danger"></p>
+							</div>
+                           <div class="form-group">
+								<textarea class="form-control" name="title_en" placeholder="İngilizce İçerik *" style="min-height: 250px;" >{{service.title_en}}</textarea>
+								<p class="help-block text-danger"></p>
+							</div>
+							<div class="form-group">
+								<textarea class="form-control" name="title_ar" placeholder="Arapça İçerik *" style="min-height: 250px;" >{{service.title_ar}}</textarea>
 								<p class="help-block text-danger"></p>
 							</div>
 							
-							 <div class="form-group">
-								<input class="form-control" name="title_en" type="text" placeholder="İngilizce Başlık*" value="{{service.title_en}}" required="required" data-validation-required-message="Please enter the title of the new post.">
-								<p class="help-block text-danger"></p>
-							</div>
 							
-							 <div class="form-group">
-								<input class="form-control" name="title_ar" type="text" placeholder="Arapça Başlık*" value="{{service.title_ar}}" required="required" data-validation-required-message="Please enter the title of the new post.">
-								<p class="help-block text-danger"></p>
-							</div>
 							
 							
 							
