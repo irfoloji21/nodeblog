@@ -397,7 +397,7 @@ PAGE HEADER
 }
 
 .page-image-about {
-    background: linear-gradient( rgba(20, 20, 20, .3), rgba(20, 20, 20, .3)), url("../img/kimyager.jpeg");
+    background: linear-gradient( rgba(20, 20, 20, .3), rgba(20, 20, 20, .3)), url("../img/kimyager.jpg");
 	background-repeat: no-repeat;
 	background-size: cover;
     background-position: center;
