@@ -12,16 +12,16 @@
 			<ul class="navbar-nav text-uppercase ml-auto">
 				{{#unless displayLink}}
 				<li class="nav-item">
-					<a class="nav-link lang" data-key="HOME" href="/">Home</a>
+					<a class="nav-link lang" data-key="HOME" href="/">Anasayfa</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link lang" data-key="ABOUT" href="/about">About us</a>
+					<a class="nav-link lang" data-key="ABOUT" href="/about">Hakkımızda</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link lang" data-key="PRODUCTS" href="/products">Products</a>
+					<a class="nav-link lang" data-key="PRODUCTS" href="/products">Ürünlerimiz</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link lang" data-key="CONTACT" href="/contact">Contact / Location</a>
+					<a class="nav-link lang" data-key="CONTACT" href="/contact">İletişim / Konum</a>
 				</li>
 				{{#each select}}
 				<form action="/posts/language/{{_id}}?_method=PUT" method="POST" enctype="multipart/form-data">
