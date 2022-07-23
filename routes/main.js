@@ -37,7 +37,7 @@ router.get('/products', (req, res) => {
                     $lookup: {
                         from: 'posts',
                         localField: '_id',
-                        foreignField: 'category',
+                        foreignField: 'category_id',
                         as: 'posts'
                     }
                 },
@@ -49,14 +49,17 @@ router.get('/products', (req, res) => {
                     }
                 }
             ]).then(categories => {
-                MySelect.findOne().lean().then(myselect => {
+                MySelect.findOne().lean().then(myselect1 => {
                     MySelect.find().lean().then(select => {
                         Contact.find({}).lean().then(contact => {
                             Category.find().lean().then(category => {
                                 Category.findOne().lean().then(iscategory => {
+                                    
+                              
+                                  
 
                                 res.render('site/blog', {
-                                    myselect: myselect,
+                                    myselect: req.cookies.selection,
                                     posts: posts,
                                     categories: categories,
                                     contact: contact,

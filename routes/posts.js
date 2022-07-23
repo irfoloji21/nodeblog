@@ -176,14 +176,17 @@ router.post('/test', (req, res) => {
 
 
 router.put('/language/:id', (req, res) => {
+  
 
   mySelect.findOne({ _id: req.params.id }).then(selection => {
     selection.selection = req.body.selection
 
-
-    selection.save().then(post => {
+    res.cookie('selection', selection)
+   // selection.save().then(post => {
+    
+      
       res.redirect('back')
-    })
+   // })
   })
 })
 module.exports = router

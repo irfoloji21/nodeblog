@@ -6,6 +6,7 @@ const hostname = 'endukimcompany.herokuapp.com'
 // const hostname = '127.0.0.1'
 const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
+const cookieParser = require('cookie-parser')
 const fileUpload = require('express-fileupload')
 const { generateDate, limit, truncate, i18n, selection_helper, editHelper, iscategory} = require('./helpers/hbs')
 const expressSession = require('express-session')
@@ -54,9 +55,7 @@ const hbs = exphbs.create({
 
 app.engine('handlebars', hbs.engine)
 app.set('view engine', 'handlebars')
-
-//app.engine('handlebars', hbs.engine)
-//app.engine('.handlebars', exphbs.engine({ extname: '.handlebars', defaultLayout: "main"})); //stackoverflowdan aldım
+app.use(cookieParser())
 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }))

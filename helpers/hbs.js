@@ -28,10 +28,10 @@ module.exports = {
         // arabic = arabic veri
        
 
- 
-         if (abc == "tr-tr") return selection
+        console.log(abc + "irfan")
+         if (abc == "ar-XA") return arabic
          else if (abc== "en-gb") return  title
-         else return arabic
+         else return selection
 
     },
     editHelper: (post, kategori) => {
