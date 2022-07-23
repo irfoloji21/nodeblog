@@ -18,7 +18,7 @@ router.get('/', (req, res) => {
                         service: service,
                         contact: contact,
                         select: select,
-                        myselect: myselect
+                        myselect: req.cookies.selection
                     })
                 })
             })
@@ -83,7 +83,7 @@ router.get('/contact', (req, res) => {
                 res.render('site/contact', {
                     contact: contact,
                     select: select,
-                    myselect: myselect
+                    myselect: req.cookies.selection
                 })
             })
         })
@@ -100,7 +100,7 @@ router.get('/about', (req, res) => {
                         about: about,
                         contact: contact,
                         select: select,
-                        myselect: myselect
+                        myselect: req.cookies.selection
                     })
                 })
             })
